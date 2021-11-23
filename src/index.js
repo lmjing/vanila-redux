@@ -1,22 +1,12 @@
+import { createStore } from "redux"
+
 const minusBtn = document.getElementById('minus')
 const plusBtn = document.getElementById('plus')
 const number = document.querySelector('span')
 
-let count = 0
-
-const modifyCount = () => {
-  number.innerText = count
+const reducer = (count = 0) => {
+  return count
 }
+const countStore = createStore(reducer)
 
-const handleMinus = () => {
-  count = count - 1
-  modifyCount()
-}
-
-const handleAdd = () => {
-  count = count + 1
-  modifyCount()
-}
-
-minusBtn.addEventListener('click', handleMinus)
-plusBtn.addEventListener('click', handleAdd)
+console.log(countStore.getState())
